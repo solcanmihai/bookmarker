@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+.toolbar {
+
+  @include mat.toolbar-overrides((
+    container-background-color: #4373ff,
+  ));
+}
+
+.toolbar {
+    
+display: flex;
+align-items: center;
+justify-content: space-between;
+}

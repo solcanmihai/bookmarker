@@ -1,1 +1,12 @@
-<p>navigation works!</p>
+<mat-toolbar class="toolbar">
+  <span>Bookmarker</span>
+
+  <mat-form-field appearance="outline">
+    <mat-icon matSuffix>search</mat-icon>
+    <input matInput type="text" [formControl]="searchControl" />
+  </mat-form-field>
+
+  <button mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>

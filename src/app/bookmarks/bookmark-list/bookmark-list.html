@@ -1,1 +1,24 @@
-<p>bookmark-list works!</p>
+{{bookmarks$ | async | json}}
+<div class="bookmark-list">
+  @for(cat of bookmarks$ | async; track cat.title) {
+  <div class="bookmark-list__category">
+    <div class="bookmark-list__category-title">{{cat.title}}</div>
+    @for (item of cat.items; track item.id) {
+    <div *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></div>
+    }
+  </div>
+  }
+</div>
+
+<ng-template let-item #itemTemplate>
+  <div class="bookmark-list__item">
+    <mat-icon>bookmark</mat-icon>
+    <div class="bookmark-list__item-content">
+      <div>{{item?.title}} -- {{item?.creationDate * 1000 | date: 'short'}}</div>
+      <div><a [attr.href]="item?.url">{{item?.url}}</a></div>
+    </div>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+</ng-template>
