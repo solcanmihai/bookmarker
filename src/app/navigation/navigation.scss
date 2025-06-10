@@ -2,14 +2,19 @@
 
 .toolbar {
 
-  @include mat.toolbar-overrides((
-    container-background-color: #4373ff,
-  ));
+  @include mat.toolbar-overrides((container-background-color: #4373ff,
+    ));
 }
 
 .toolbar {
-    
-display: flex;
-align-items: center;
-justify-content: space-between;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-search {
+  @include mat.form-field-overrides((outlined-outline-color: white,
+      outlined-label-text-color: white,
+    ));
 }

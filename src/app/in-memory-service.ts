@@ -10,31 +10,33 @@ export class InMemoryService implements InMemoryDbService {
   //   return items.map(item => ({ ...item, id: `${item.name} - ${item.url}` }));
   // }
 
+  private currentTimestamp = Date.now() / 1000;
+
   createDb() {
-    let bookmarks = [
+    const bookmarks = [
       {
-        id: uuidv4(),
-        title: 'Test',
+        id: '70798e82-b16f-4c57-b821-c26e3c047612',
+        title: 'Test 4',
         url: 'http://www.google.com',
-        creationDate: 1749363074 + 60 * 60 * 36,
+        creationDate: this.currentTimestamp - 60 * 60 * 36,
       },
       {
-        id: uuidv4(),
+        id: 'abc6ec36-0081-4607-bc22-710107eb6633',
         title: 'Test',
         url: 'http://www.google.com',
-        creationDate: 1749363074 + 60 * 60 * 48,
+        creationDate: this.currentTimestamp - 60 * 60 * 48,
       },
       {
-        id: uuidv4(),
+        id: '1357761a-b4f8-4d3d-823e-453d24d415d8',
         title: 'Test 2',
         url: 'http://www.google.com',
-        creationDate: 1749363074 + 60 * 60 * 24,
+        creationDate: this.currentTimestamp - 60 * 60 * 24,
       },
       {
-        id: uuidv4(),
+        id: '50826ed2-0b63-4d11-9b1a-2dbc357ca527',
         title: 'Test 3',
         url: 'http://www.google.com',
-        creationDate: 1749363074,
+        creationDate: this.currentTimestamp - 1000,
       },
     ];
 

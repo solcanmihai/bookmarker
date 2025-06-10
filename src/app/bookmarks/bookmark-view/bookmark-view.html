@@ -1,1 +1,30 @@
-<p>bookmark-view works!</p>
+<mat-card>
+  <div class="bookmark-view">
+    <div class="bookmark-view__title">
+      <div class="bookmark-view__title-1">
+        @if (isNew$ | async) {
+        <span>Create new bookmark</span>
+        } @else {
+        <span>Edit existing bookmark</span>
+        }
+      </div>
+      <div class="bookmark-view__title-2">Type bookmark name and url</div>
+      <mat-icon fontSet="material-icons-outlined" class="bookmark-view__title-3">bookmark</mat-icon>
+    </div>
+    <form class="bookmardk-view__form" [formGroup]="bookmarkForm">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input formControlName="title" matInput type="text" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Url</mat-label>
+        <input formControlName="url" matInput type="text" />
+      </mat-form-field>
+    </form>
+  </div>
+  <mat-card-actions>
+    <button (click)="createOrUpdateBookmark()" [disabled]="bookmarkForm.invalid" mat-flat-button>
+      @if (isNew$ | async) {Create bookmark} @else {Update bookmark}
+    </button>
+  </mat-card-actions>
+</mat-card>

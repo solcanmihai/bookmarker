@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  margin: 0 auto;
+  width: 50vw;
+}
+
+.bookmark-view {
+  margin: 16px;
+
+  &__title {
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+
+    &-2 {
+      flex-grow: 1;
+      color: #ccc;
+      margin-left: 32px;
+    }
+  }
+
+  &__form {
+    display: flex;
+
+    &>* {
+      flex-grow: 1;
+    }
+  }
+}

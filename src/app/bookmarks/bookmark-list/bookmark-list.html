@@ -1,4 +1,4 @@
-{{bookmarks$ | async | json}}
+<!-- {{bookmarks$ | async | json}} -->
 <div class="bookmark-list">
   @for(cat of bookmarks$ | async; track cat.title) {
   <div class="bookmark-list__category">
@@ -14,10 +14,13 @@
   <div class="bookmark-list__item">
     <mat-icon>bookmark</mat-icon>
     <div class="bookmark-list__item-content">
-      <div>{{item?.title}} -- {{item?.creationDate * 1000 | date: 'short'}}</div>
+      <div>
+        {{item?.title}}
+        <!-- -- {{item?.creationDate * 1000 | date: 'short'}} -->
+      </div>
       <div><a [attr.href]="item?.url">{{item?.url}}</a></div>
     </div>
-    <button mat-icon-button>
+    <button [routerLink]="item.id" mat-icon-button>
       <mat-icon>edit</mat-icon>
     </button>
   </div>
